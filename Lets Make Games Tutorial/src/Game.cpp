@@ -1,6 +1,7 @@
 #include "Game.h"
 
 SDL_Texture* playerTex;
+SDL_Rect srcR, destR;
 
 Game::Game() {}
 Game::~Game() {}
@@ -55,14 +56,18 @@ void Game::handleEvents() {
 }
 
 void Game::update() {
-	/*count++;
-	std::cout << count << std::endl;*/
+	count++;
+	destR.h = 416;
+	destR.w = 274;
+	
+
+	std::cout << count << std::endl;
 }
 
 void Game::render() {
 	SDL_RenderClear(renderer);
 	// add stuff to render
-	SDL_RenderCopy(renderer, playerTex, NULL, NULL);
+	SDL_RenderCopy(renderer, playerTex, NULL, &destR);
 	SDL_RenderPresent(renderer);
 }
 
